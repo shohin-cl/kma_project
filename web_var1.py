@@ -11,7 +11,11 @@ if st.button('Check'):
     with open("sample.json") as file:
         data = json.load(file)
     for i in data:
-        if data[i]["ID number"] == userID:
+        if data[i]["ID number"] != userID:
+            st.write("There is no such user with this ID")
+            st.write("Please enter the correct ID")
+            break
+        elif data[i]["ID number"] == userID:
             name = data[i]['Name of participants']
             dfb = data[i]['Date of birth']
             idn = data[i]["ID number"]
